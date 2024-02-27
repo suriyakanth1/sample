@@ -1,1 +1,1 @@
-hi CICD
+hi CICD_PIPELINE
