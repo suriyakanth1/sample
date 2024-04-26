@@ -4,9 +4,7 @@
           workflow_dispatch:
           push:
            paths-ignore:
-             - '.github/workflows/**'
-          schedule:
-              - cron: '*/5 * * * *'   
+             - '.github/workflows/**'   
     
 
         jobs:
