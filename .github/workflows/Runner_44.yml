@@ -6,7 +6,7 @@
 
         jobs:
           build:
-           name: GITHUB
+           name: GITHUB1
            runs-on: [self-hosted, windows]
            steps:
                 - name: Check out the repo
