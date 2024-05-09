@@ -4,4 +4,4 @@ WORKDIR /index.js
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD [ "Update1", "start" ]
+CMD [ "Update2", "start" ]
