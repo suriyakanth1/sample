@@ -2,7 +2,11 @@
 
         on:
           workflow_dispatch:
-
+          push:
+           paths-ignore:
+             - '.github/workflows/**'
+             - '**/Dockerfile'
+  
 
         jobs:
           build:
@@ -18,8 +22,6 @@
           DOCKERHUB:
            needs: [build]
            runs-on: ubuntu-latest
-           environment:
-              name: DEVELOPMENT
            steps:
              - name: Checkout code
                uses: actions/checkout@v2
@@ -28,24 +30,23 @@
              - name: Login to Docker Hub
                uses: docker/login-action@v2
                with:
-                 username: ${{ vars.DEV_DOCKER_USERNAME }}
-                 password: ${{ secrets.DEV_DOCKER_ACCESSTOKEN }}
+                 username: null
+                 password: null
              - name: Build and push
                uses: docker/build-push-action@v5
                with:
                   push: true
-                  tags: ${{ vars.DEV_DOCKER_USERNAME }}/dockerimagebuild:main
+                  tags: null/dockerimagebuild:main
+            
 
     #---------------- sonarqube
           SONARQUBE:
             needs: [DOCKERHUB]
             runs-on: ubuntu-latest
-            environment:
-              name: DEVELOPMENT
             steps:
               - uses: actions/checkout@master
               - name: SonarQube Scan
                 uses: sonarsource/sonarqube-scan-action@master
             env:
-                SONAR_TOKEN: ${{ secrets.DEV_SONAR_ACCESSTOKEN }}
-                SONAR_HOST_URL: ${{ vars.DEV_SONAR_URL }}
+                SONAR_TOKEN: null
+                SONAR_HOST_URL: null
