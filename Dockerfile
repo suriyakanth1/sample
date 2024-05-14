@@ -3,4 +3,4 @@ WORKDIR /index.js
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD [ "new_Method", "start" ]
+CMD [ "Method", "start" ]
