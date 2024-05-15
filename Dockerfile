@@ -3,4 +3,4 @@ FROM node:16
           COPY package*.json ./
           RUN npm install
           COPY . .
-          CMD ["node1", "start"]
+          CMD ["node", "start"]
