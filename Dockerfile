@@ -3,4 +3,4 @@ WORKDIR /index.js
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD [ "New docker file created", "start" ]
+CMD [ " docker file created", "start" ]
