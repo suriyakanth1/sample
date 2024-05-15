@@ -1,6 +1,6 @@
 FROM node:16
-WORKDIR /index.js
-COPY package*.json ./
-RUN npm install
-COPY . .
-CMD [ " docker file created", "start" ]
+            WORKDIR /app
+            COPY package*.json ./
+            RUN npm install
+            COPY . .
+            CMD ["node", "start"]
