@@ -3,4 +3,4 @@ WORKDIR /index.js
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD [ "ng-module", "start" ]  
+CMD [ "npm", "start" ]  
