@@ -24,7 +24,7 @@
            needs: [build]
            runs-on: ubuntu-latest
            environment:
-              name: PRODUCTION
+              name: DEVELOPMENT
            steps:
              - name: Checkout code
                uses: actions/checkout@v2
@@ -47,7 +47,7 @@
             needs: [DOCKERHUB]
             runs-on: ubuntu-latest
             environment:
-              name: PRODUCTION
+              name: DEVELOPMENT
             steps:
               - uses: actions/checkout@master
               - name: SonarQube Scan
@@ -60,7 +60,7 @@
           VIRTUAL_MACHINE:
             runs-on: ubuntu-latest
             environment:
-              name: PRODUCTION
+              name: DEVELOPMENT
             needs: [SONARQUBE]
             steps:
                - name: Checkout code
