@@ -11,23 +11,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-  DOCKERHUB:
+  JMETER:
     needs: [build]
     runs-on: ubuntu-latest
-    environment:
-      name: DEVELOPMENT
     steps:
       - name: Download JMeter
         run: |
-          wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.4.1.tgz
-          tar -xf apache-jmeter-5.4.1.tgz
+          sshpass -p ClearC0de20S4 ssh -o StrictHostKeyChecking=no root@158.220.107.63 'projects/jmeter/apache-jmeter-5.4.1/bin && ./jmeter'
 
-      - name: Run JMeter script
-        run: |
-          ./apache-jmeter-5.4.1/bin/jmeter -n -t path/to/your/script.jmx -l results.jtl
-
-      - name: Upload results
-        uses: actions/upload-artifact@v2
-        with:
-          name: jmeter-results
-          path: results.jtl
