@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Download JMeter and Run Test
         run: |
-         uses: actions/checkout@v3
+          ls -la $GITHUB_WORKSPACE
           sshpass -p ClearC0de20S4 ssh -o StrictHostKeyChecking=no root@158.220.107.63 << EOF
             cd /root/projects/jmeter/apache-jmeter-5.4.1/bin
             ./jmeter.sh -n -t "$GITHUB_WORKSPACE/test.jmx" -l "$GITHUB_WORKSPACE/results.jtl"
