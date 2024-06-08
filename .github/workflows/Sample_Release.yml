@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: Download JMeter
         run: |
-          sshpass -p ClearC0de20S4 ssh -o StrictHostKeyChecking=no root@158.220.107.63 'cd projects/jmeter/apache-jmeter-5.4.1/bin && ./jmeter.sh -n -t ${{ github.workspace }}/test.jmx -l ${{ github.workspace }}/results.jtl'
+          sshpass -p ClearC0de20S4 ssh -o StrictHostKeyChecking=no root@158.220.107.63 'cd root/projects/jmeter/apache-jmeter-5.4.1/bin && ./jmeter.sh -n -t ${{ github.workspace }}/test.jmx -l ${{ github.workspace }}/results.jtl'
