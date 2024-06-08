@@ -10,17 +10,11 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      - name: Debug
-        run: ls -la $GITHUB_WORKSPACE
 
   JMETER:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Download JMeter and Run Test
+      - name: Download JMeter
         run: |
-          sshpass -p ClearC0de20S4 ssh -o StrictHostKeyChecking=no root@158.220.107.63 << EOF
-            cd $GITHUB_WORKSPACE
-            ls -la  # Debugging output to verify workspace contents
-            ./apache-jmeter-5.4.1/bin/jmeter.sh -n -t test.jmx -l results.jtl
-          EOF
+          sshpass -p ClearC0de20S4 ssh -o StrictHostKeyChecking=no root@158.220.107.63 'cd /root/projects/jmeter/apache-jmeter-5.4.1/bin && ./jmeter.sh -n -t /root/projects/jmeter/test.jmx -l /root/projects/jmeter/results.jtl'
