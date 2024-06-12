@@ -4,7 +4,7 @@
           workflow_dispatch:
 
 
-        jobs:
+        jobs: 
           build:
            name: GITHUB
            runs-on: ubuntu-latest
