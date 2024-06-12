@@ -55,4 +55,4 @@
                  uses: actions/checkout@v3
                - name: Deploy to Linux Server
                  run: |
-                     sshpass -p CmCICD#2024# ssh -o StrictHostKeyChecking=no ubuntu@13.51.7.24 "docker pull suriyakanth1/dockerimagebuild:main && docker run --rm -p 3000:3000 -d suriyakanth1/dockerimagebuild:main"
+                     sshpass -p CmCICD#2024# ssh -o StrictHostKeyChecking=no ubuntu@13.51.7.24 "sudo docker pull suriyakanth1/dockerimagebuild:main && sudo docker run --rm -p 3000:3000 -d suriyakanth1/dockerimagebuild:main"
