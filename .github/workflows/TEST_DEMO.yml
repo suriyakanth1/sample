@@ -22,6 +22,7 @@
           ORCHESTRATION:
             needs: [build]
             runs-on: ubuntu-latest
+            timeout-minutes: 720
             permissions:
                issues: write
             steps:
